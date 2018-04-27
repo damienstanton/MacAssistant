@@ -309,7 +309,7 @@ public protocol RecordViewDelegate: class {
 private extension RecordView {
     func modifierTextAttributes(_ modifiers: NSEvent.ModifierFlags, checkModifier: NSEvent.ModifierFlags) -> [NSAttributedStringKey: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
-        paragraphStyle.alignment = .center
+        paragraphStyle.alignment = NSTextAlignment.center
         paragraphStyle.lineBreakMode = NSParagraphStyle.LineBreakMode.byTruncatingTail
         paragraphStyle.baseWritingDirection = NSWritingDirection.leftToRight
         let textColor: NSColor
@@ -320,18 +320,18 @@ private extension RecordView {
         } else {
             textColor = .lightGray
         }
-        return [NSAttributedStringKey.font: NSFont.systemFont(ofSize: floor(fontSize)),
-                NSAttributedStringKey.foregroundColor: textColor,
-                NSAttributedStringKey.paragraphStyle: paragraphStyle]
+        return [.font: NSFont.systemFont(ofSize: floor(fontSize)),
+                .foregroundColor: textColor,
+                .paragraphStyle: paragraphStyle]
     }
 
     func keyCodeTextAttributes() -> [NSAttributedStringKey: Any] {
         let paragraphStyle = NSMutableParagraphStyle()
         paragraphStyle.lineBreakMode = NSParagraphStyle.LineBreakMode.byTruncatingTail
         paragraphStyle.baseWritingDirection = NSWritingDirection.leftToRight
-        return [NSAttributedStringKey.font: NSFont.systemFont(ofSize: floor(fontSize)),
-                NSAttributedStringKey.foregroundColor: tintColor,
-                NSAttributedStringKey.paragraphStyle: paragraphStyle]
+        return [.font: NSFont.systemFont(ofSize: floor(fontSize)),
+                .foregroundColor: tintColor,
+                .paragraphStyle: paragraphStyle]
     }
 }
 
